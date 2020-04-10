@@ -92,7 +92,9 @@ void keyPressed() {
     }
     break;
   }
-  touches[keyCode] = true;
+  if (keyCode < 256) {
+    touches[keyCode] = true;
+  }
 }
 
 
@@ -108,7 +110,9 @@ void mouseWheel(MouseEvent event) {
 
 void keyReleased() {
   keyReleased = true;
-  touches[keyCode] = false;
+  if (keyCode < 256) {
+    touches[keyCode] = false;
+  }
 }
 
 
@@ -170,6 +174,7 @@ void affichage() {
     background(100, 100, 200);
     pushStyle();
     fill(0);
+    textSize(x700(25));
     text("Nouveau Profil", 255, 50);
     text("Prénom :", 10, 130);
     text("Nom :", 10, 180);
